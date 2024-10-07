@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Ação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmar Ação</h1>
+        <div class="content">
+            <p>Tem certeza que deseja executar esta ação?</p>
+            <form method="POST" action="{{ url_for('main.confirm') }}">
+                <button type="submit">Confirmar</button>
+            </form>
+            <form action="{{ url_for('main.index') }}">
+                <button class="return-button">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

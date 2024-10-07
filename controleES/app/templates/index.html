@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Menu Principal</h1>
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="content">
+            <form method="POST" action="{{ url_for('main.register') }}">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="action">Ação:</label>
+                <select id="action" name="action" required>
+                    <option value="Entrada">Entrada</option>
+                    <option value="Saída">Saída</option>
+                </select>
+
+                <button type="submit">Registrar</button>
+            </form>
+            <form action="{{ url_for('main.records') }}">
+                <button type="submit">Ver Registros</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const flashMessages = document.querySelectorAll('.flash');
+
+        flashMessages.forEach(message => {
+            setTimeout(() => {
+                message.style.opacity = 0;
+            }, 1500); // Tempo antes do fade out (em milissegundos)
+        });
+    });
+    </script>
+</body>
+</html>

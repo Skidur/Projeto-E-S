@@ -1,0 +1,201 @@
+/* Certifique-se de que o body ocupe toda a tela */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Contêiner principal da aplicação */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa pelo menos a altura total da tela */
+}
+
+/* Seções de conteúdo */
+.content {
+    flex: 1; /* Faz o conteúdo expandir para ocupar o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Formulário de entrada e saída */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para campos de entrada de dados */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="tel"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Botão de apagar registros */
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Ajusta o botão de "Voltar ao Menu Principal" */
+.return-button {
+    align-self: flex-start;
+    margin-left: 0px;
+}
+
+/* Ajuste para tabelas */
+.table-container {
+    width: 90%; /* Reduzido para caber na tela inteira */
+    margin: 0 auto;
+    overflow-x: auto; /* Adiciona barra de rolagem horizontal se necessário */
+    padding: 20px;
+}
+
+table {
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    word-wrap: break-word; /* Evita que o texto quebre fora das células */
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+td {
+    white-space: nowrap; /* Impede que o texto quebre em linhas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Ajuste para conteúdo em colunas */
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    th, td {
+        font-size: 14px; /* Ajusta o tamanho da fonte para dispositivos menores */
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Alinhamento e espaçamento do título principal */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilizando o fundo */
+body {
+    background-color: #f8f9fa; /* Leve cinza para o fundo */
+}
+
+/* Melhorando a visibilidade dos formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+label, input {
+    width: 100%;
+    max-width: 578px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botões dentro da tabela */
+table button {
+    width: auto;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+/* Mensagens flash */
+.flash-messages {
+    position: fixed;
+    top: 0; /* Alinha ao topo da tela */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 100%;
+    max-width: 600px;
+    z-index: 1000;
+}
+
+.flash {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #28a745;
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Adiciona um efeito de transição para o fade out */
+}
+
+.flash.success {
+    background-color: #28a745; /* Verde */
+}
+
+.flash.error {
+    background-color: #dc3545; /* Vermelho */
+}

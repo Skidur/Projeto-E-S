@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpar Registros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Limpar Registros</h1>
+        <div class="content">
+            <form method="POST" action="{{ url_for('main.clear') }}">
+                <button type="submit" class="delete-button">Limpar Todos os Registros</button>
+            </form>
+            <form action="{{ url_for('main.index') }}">
+                <button class="return-button">Voltar ao Menu Principal</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

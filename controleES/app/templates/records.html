@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Registros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registros</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>Ação</th>
+                        <th>Data e Hora</th>
+                        <th>Apagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.name }}</td>
+                        <td>{{ entry.cpf }}</td>
+                        <td>{{ entry.phone }}</td>
+                        <td>{{ entry.action }}</td>
+                        <td>{{ entry.local_timestamp }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('main.delete_entry', entry_id=entry.id) }}">
+                                <button type="submit" class="delete-button">Apagar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form action="{{ url_for('main.index') }}">
+            <button class="return-button">Voltar ao Menu Principal</button>
+        </form>
+    </div>
+</body>
+</html>
